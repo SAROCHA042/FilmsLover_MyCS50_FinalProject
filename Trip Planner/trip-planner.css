@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap');
+
+.card-body {
+    padding-right: 20px;
+    padding-bottom: 20px;
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 2fr  3fr;
+}
+.card-detail {
+    width: fit-content;
+    height: 310px;
+    background-color: #3a4052;
+    border-radius: 5%;
+    box-shadow: 0 5px 15px #3a4052;
+}
+.card-img img {
+    height: 200px;
+    z-index: 10;
+    margin: 15px 15px;
+}
+.days {
+    color: #3a4052;
+    font-size: 25px;
+    text-align: center;
+    justify-content: center;
+    bottom: 150px;
+}
+.days h5 {
+    left: 50px;
+    bottom: 100px;
+    right: -50px;
+    height: 20px;
+    width: 100%;
+    background: #ffc105;
+    box-shadow: 0 2px 15px #ffd752;
+}
+.province {
+    text-align: center;
+    color: white;
+    align-items: center;
+}
+.day span {
+    z-index: 111;
+}
+.program {
+    width: 100%;
+    height: 310px;
+}
+.program h1 {
+    font-size: 35px;
+    font-family: Julius Sans One;
+}
+.program ul {
+    right: 25px;
+    list-style: none;
+    font-size: 25px;
+}
+.movies-list {
+    padding-left: 30px;
+}
+.movies-list i {
+    color: grey;
+}
+.movies-list i:hover {
+    color: #3a4052;
+    font-size: 30px;
+}
+.program h1 > a {
+    text-decoration: none;
+    color: #3a4052;
+}
+.program h1 > a:hover {
+    color: #ffc105;
+}
+

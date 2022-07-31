@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in to Films Lover</title>
+    <script src="https://kit.fontawesome.com/ed203a7d80.js" crossorigin="anonymous"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background: #3a4052;
+            font-family: Montserrat;
+        }   
+        .box{
+            width: 380px;
+            height: 480px;
+            position: relative;
+            margin: 6% auto;
+            background: white;
+            padding: 5px;
+            overflow: hidden;
+            border-radius: 5%;
+        }
+        .btn-box {
+            width: 220px;
+            margin: 35px auto;
+            position: relative;
+            box-shadow: 0 0 20px 9px #3a40521f;
+            border-radius: 30px;
+            background: grey;
+        }
+        .toggle-btn {
+            padding: 10px 27px;
+            cursor: pointer;
+            background: transparent;
+            border: 0;
+            outline: none;
+            position: relative;
+            font-family: Montserrat;
+            color: white;
+        }
+        #btn {
+            top: 0;
+            left: 0;
+            position: absolute;
+            width: 110px;
+            height: 100%;
+            background: linear-gradient(to right, #3a4052, #80b7be);
+            border-radius: 30px;
+            transition: .5s;
+        }   
+        .icons {
+            margin: 30px auto;
+            text-align: center;
+            cursor: pointer;
+        }
+        .google i, .facebook i {
+            color: grey;
+            font-size: 41px;
+            margin: 0 12px;
+        }
+        .google i:hover {
+            color: #c63d2d;
+            font-size: 42px;
+        }
+        .facebook i:hover {
+            color: #3b5998;
+            font-size: 41px;
+        }
+        .input {
+            top: 180px;
+            position: absolute;
+            width: 280px;
+            transition: .5s;
+        }
+        .input-area {
+            width: 100%;
+            padding: 10px 0;
+            margin: 5px 0;
+            border-top: 0; 
+            border-right: 0;
+            border-left: 0;
+            border-bottom: 1px solid grey;
+            outline: none;
+            background: transparent;
+            font-family: Montserrat;
+        }
+        .submit-btn {
+            width: 85%;
+            padding: 10px 30px;
+            cursor: pointer;
+            display: block;
+            margin: auto;
+            background: linear-gradient(to right, #3a4052, #80b7be);
+            outline: none;
+            border-radius: 15px;
+            border: none;
+            font-family: Montserrat;
+            color: white;
+        }
+        .check-box {
+            margin: 30px 10px 30px 0;
+        }
+        span {
+            color: grey;
+            font-size: 14px;
+        }
+        #login {
+            left: 50px;
+        }
+        #register {
+            left: 450px;
+        }
+    </style>
+    
+</head>
+
+
+<body>
+    <div class="box">
+        <div class="btn-box">
+            <div id="btn"></div>
+            <button type="button" class="toggle-btn" onclick="login()">Log In</button>
+            <button type="button" class="toggle-btn" onclick="register()">Register</button>
+        </div>
+        <div class="icons">
+            <span class="google"><i class="fab fa-google-plus-square"></i></span>
+            <span class="facebook"><i class="fab fa-facebook-square"></i></span>
+        </div>
+        <form id="login" class="input">
+            <input type="text" class="input-area" placeholder="Username" required>
+            <input type="password" class="input-area" placeholder="Password" required>
+            <input type="checkbox" class="check-box"><span>Remember password</span>
+            <button type="submit" class="submit-btn">Log in</button>
+        </form>
+
+        <form id="register" class="input">
+            <input type="text" class="input-area" placeholder="Username" required>
+            <input type="email" class="input-area" placeholder="Email" required>
+            <input type="password" class="input-area" placeholder="Password" required>
+            <input type="checkbox" class="check-box"><span>I agree to the terms & conditions</span>
+            <button type="submit" class="submit-btn">Register</button>
+        </form>
+    </div>
+
+    <script>
+        var x = document.getElementById("login");
+        var y = document.getElementById("register");
+        var z = document.getElementById("btn");
+
+        function register(){
+            x.style.left = "-400px";
+            y.style.left = "50px";
+            z.style.left = "110px";
+        }
+
+        function login(){
+            x.style.left = "50px";
+            y.style.left = "450px";
+            z.style.left = "0px";
+        }
+    </script>
+    
+
+    
+</body>
+</html>
+

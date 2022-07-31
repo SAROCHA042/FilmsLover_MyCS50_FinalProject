@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="sidebar.css"> 
+    <style>
+/************************************** Slide-Img Style *************************************************/
+        @import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+        :root {
+            --nav1-color: #f5f5f5;
+            --based-color: #3a4052;
+            --search-color : #a9a9a9;
+            --sidebar-color : #ffc105;
+        }
+        .top5locations {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: white;
+        }
+        .slider {
+            width: 800px;
+            height: 500px;
+            border-radius: 10px;
+            overflow: hidden;
+            background: var(--based-color);
+            margin-top: -50px;
+            position: relative;
+        }
+        .slides {
+            width: 500%;
+            height: 500px;
+            display: flex;
+        }
+        .slides input {
+            display: none;
+        }
+        .slide {
+            width: 20%;
+            transition: 2s;
+        }
+        .slide img {
+            width: 800px;
+            height: 500px;
+        }
+                          /****************** manual slide navigation ******************/
+        .navigation-manual {
+            position: absolute;
+            width: 800px;
+            margin-top: -40px;
+            display: flex;
+            justify-content: center;
+        }
+        .manual-btn {
+            border: 2px solid var(--sidebar-color);
+            padding: 5px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 1s;
+        }
+        .manual-btn:not(:last-child) {
+            margin-right: 40px;
+        }
+        .manual-btn:hover {
+            background: var(--sidebar-color);
+        }
+        #radio1:checked ~ .first {
+            margin-left: 0;
+        }
+        #radio2:checked ~ .first {
+            margin-left: -20%;
+        }
+        #radio3:checked ~ .first {
+            margin-left: -40%;
+        }
+        #radio4:checked ~ .first {
+            margin-left: -60%;
+        }
+        #radio5:checked ~ .first {
+            margin-left: -80%;
+        }
+                    /****************** automatic slide navigation ******************/
+        .navigation-auto {
+            position: absolute;
+            display: flex;
+            width: 800px;
+            justify-content: center;
+            margin-top: 460px;
+        }
+        .navigation-auto div {
+            border: 2px solid var(--sidebar-color);
+            padding: 5px;
+            border-radius: 10px;
+            transition: 1s;
+        }    
+        .navigation-auto div:not(:last-child) {
+            margin-right: 40px;
+        }
+        #radio1:checked ~ .navigation-auto .auto-btn1 {
+            background: var(--sidebar-color)
+        }
+        #radio2:checked ~ .navigation-auto .auto-btn2 {
+            background: var(--sidebar-color)
+        }
+        #radio3:checked ~ .navigation-auto .auto-btn3 {
+            background: var(--sidebar-color)
+        }
+        #radio4:checked ~ .navigation-auto .auto-btn4 {
+            background: var(--sidebar-color)
+        }
+        #radio5:checked ~ .navigation-auto .auto-btn5 {
+            background: var(--sidebar-color)
+        }
+                            /****************** Link to website ******************/
+        .explore-btn{
+            display: inline-block;
+            padding: 10px 20px;
+            background: var(--based-color);
+            color: var(--sidebar-color);
+            margin-top: 10px;
+            text-align: center;
+            width: 100%;
+            text-decoration: none;
+            margin-bottom: 10px;
+            font-size: 35px;
+            font-family: Roboto;
+            text-transform: uppercase;
+        }
+        .explore-btn:hover {
+            padding: 15px 25px;
+            font-size: 30px;
+        }
+
+/**************************************** Move card Movie **********************************************/
+        :root {
+        --nav1-color: #f5f5f5;
+        --based-color: #3a4052;
+        --search-color : #a9a9a9;
+        --sidebar-color : #ffc105;
+        }
+        #body1 {
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            place-items: center;
+            margin-top: -70px;
+            margin-left: 80px;
+        }
+        .cards {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            --distance: -4rem;
+        }
+        .card {
+            background-color: var(--search-color);
+            color: white;
+            border-radius: 2rem;
+            box-shadow: 2px 2px 6px 2px rgbt(0,0,0,0.75);
+            height: 400px;
+            margin-left: -130px;
+            overflow: hidden;
+            transition: .2s;
+            border-left: 4px solid var(--based-color);
+        }
+        .card:hover, .card:focus-within {
+            transform: translateY(-1.5rem);
+        }
+       
+    </style>    
+    <script src="https://kit.fontawesome.com/ed203a7d80.js" crossorigin="anonymous"></script>
+</head>
+
+
+<body>
+    <!------------------------------------------Nav-Header----------------------------------------------->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="nav-grid">
+                    <div class="logo">
+                        <img src="../Home/Pics/Logo.png">
+                    </div>
+                    
+                    <a class="Login" href="../Home/log-in.html" target="_blank"><i class="far fa-user-circle"></i></a> <!--  Login -->
+
+                    <div class="menu-bar">
+   <!------------------------------------------ Side Menu Bar ------------------------------------------>
+                        <input type="checkbox" id="check">
+                        <label for="check">
+                            <i class="fas fa-bars" id="menu-btn"></i>
+                            <i class="fas fa-times" id="close-menu"></i>
+                        </label>
+                        <nav class="side-bar">
+                            <div class="text">Films Trail</div>
+                            <ul>
+                                <li id="I-films-work"><a href="#" class="I-films-btn">Foreign-Films
+                                    <span class="fas fa-caret-right first"></span></a>
+                                    <ul id="I-films-show">
+                                        <li><a href="../Films/Year Released-Inter/F-2020s.html">Released 2020s</a></li>
+                                        <li><a href="../Films/Year Released-Inter/F-2010s.html">Released 2010s</a></li>
+                                        <li><a href="../Films/Year Released-Inter/F-2000s-before.html">2000s - Before</a></li>
+                                    </ul>
+                                </li>    
+                                <li id="T-films-work"><a href="#" class="T-films-btn">Thai-Films
+                                    <span class="fas fa-caret-right second"></span></a>
+                                    <ul id="T-films-show">
+                                        <li><a href="../Films/Year Realeased-Thai/T-2020s.html">Released 2020s</a></li>
+                                        <li><a href="../Films/Year Realeased-Thai/T-2010s.html">Released 2010s</a></li>
+                                        <li><a href="../Films/Year Realeased-Thai/T-2000s-before.html">2000s - Before</a></li>
+                                    </ul>   
+                                </li>  
+                                <li>
+                                    <a href="../Trip Planner/trip-planner.html">Plan Your Trip</a>
+                                </li>  
+                            </ul>
+                        </nav> 
+                    </div>
+                </div>    
+            </div>
+        </nav>
+    </header>
+
+    <script src="sidebar.js"></script>    
+
+    <section class="content">
+        <div class="container">
+            <div class="content-heading">
+                <h1>Follow Your Favorite Films Trail</h1>
+            </div> 
+
+    <!------------------------------------------Top 5 Locations----------------------------------------->
+            <h2><mark>Top 5 </mark>Locations in Thailand <span><i class="fas fa-map-marker-alt"></i></span></h2>
+            <div class="top5locations">
+                <div class="slider">
+                    <div class="slides">
+                        <!-- radio-btn start -->
+                        <input type="radio" name="radio-btn" id="radio1">
+                        <input type="radio" name="radio-btn" id="radio2">
+                        <input type="radio" name="radio-btn" id="radio3">
+                        <input type="radio" name="radio-btn" id="radio4">
+                        <input type="radio" name="radio-btn" id="radio5">
+                        <!-- radio-btn end -->
+                        
+                        <!-- slide-img start -->
+                        <div class="slide first" id="img-1">
+                            <a class="explore-btn" href="https://www.tourismthailand.org/Destinations/Provinces/Bangkok/219" target="_blank"><i class="fas fa-angle-double-left"></i> &nbsp; Bangkok &nbsp; <i class="fas fa-angle-double-right"></i></a>
+                            <img class="top5location-items" src="https://a.cdn-hotels.com/gdcs/production6/d726/05cbcbb9-903e-4cdb-85a2-219d442b33f5.jpg?impolicy=fcrop&w=1600&h=1066&q=medium" alt="Bangkok">
+                        </div>
+                        <div class="slide" id="img-2">
+                            <a class="explore-btn" href="https://www.tourismthailand.org/Destinations/Provinces/Chon-Buri/464" target="_blank"><i class="fas fa-angle-double-left"></i> &nbsp; Chon Buri &nbsp; <i class="fas fa-angle-double-right"></i></a>
+                            <img class="top5location-items" src="https://th.bing.com/th/id/R.5cea2f294d099131243a45f3ba084070?rik=I4tWAIjFboCDYA&pid=ImgRaw&r=0" alt="Cholburi Pattaya">
+                        </div>
+                        <div class="slide" id="img-3">
+                            <a class="explore-btn" href="https://www.tourismthailand.org/Destinations/Provinces/Krabi/344" target="_blank"><i class="fas fa-angle-double-left"></i> &nbsp; Krabi &nbsp; <i class="fas fa-angle-double-right"></i></a>
+                            <img class="top5location-items" src="https://api.tourismthailand.org/asset/destination/banner/desktop/344.jpg" alt="Krabi">
+                        </div>
+                        <div class="slide" id="img-4">
+                            <a class="explore-btn" href="https://www.tourismthailand.org/Destinations/Provinces/Chiang-Mai/101" target="_blank"><i class="fas fa-angle-double-left"></i> &nbsp; Chiang Mai &nbsp; <i class="fas fa-angle-double-right"></i></a>
+                            <img class="top5location-items" src="https://media.timeout.com/images/105240238/image.jpg" alt="Chiangmai">
+                        </div>
+                        <div class="slide" id="img-5">
+                            <a class="explore-btn" href="https://www.tourismthailand.org/Destinations/Provinces/Phuket/350" target="_blank"><i class="fas fa-angle-double-left"></i> &nbsp; Phuket &nbsp; <i class="fas fa-angle-double-right"></i></a>
+                            <img class="top5location-items" src="https://lp-cms-production.imgix.net/2019-06/58481926.jpg?sharp=10&vib=20&w=1200&auto=compress&fit=crop&fm=auto&h=800" alt="Phuket">
+                        </div>
+                        <!-- slide-img end -->     
+                        <!-- auto navigation start -->
+                        <div class="navigation-auto">
+                            <div class="auto-btn1"></div>
+                            <div class="auto-btn2"></div>
+                            <div class="auto-btn3"></div>
+                            <div class="auto-btn4"></div>
+                            <div class="auto-btn5"></div>
+                        </div>
+                        <!-- auto navigation end -->
+                    </div>
+                    <!-- manual navigation start -->
+                    <div class="navigation-manual">
+                        <label for="radio1" class="manual-btn"></label>
+                        <label for="radio2" class="manual-btn"></label>
+                        <label for="radio3" class="manual-btn"></label>
+                        <label for="radio4" class="manual-btn"></label>
+                        <label for="radio5" class="manual-btn"></label>
+                    </div>
+                    <!-- manual navigation end -->
+                    
+                    <script type="text/javascript">
+                    var counter = 1;
+                    setInterval(function() {
+                        document.getElementById('radio' + counter).checked = true;
+                        counter++;
+                        if(counter > 5) {
+                            counter = 1;
+                        }
+                    }, 5000);
+                    </script>
+                    
+                </div>
+            </div>
+
+    <!----------------------------------------Inter Films------------------------------------------------>
+            <div class="content-I-films">
+                <h2><mark>Foreign</mark> Films &nbsp; <span><a class="explore-films-btn" href="../Films/Inter-Film.html"><i class="fas fa-caret-square-right"></i></a></span></h2>
+            </div>
+
+            <div id="body1">
+                <div class="cards">
+                    <a href="../Films/Year Released-Inter/2020s/Extraction.html" target="_blank"><img class="card" src="https://i.pinimg.com/564x/0b/84/8a/0b848a7a1d5c0fc09b7bb51fab7e5349.jpg" alt="Extraction"></a>
+                </div>
+                <div class="cards">
+                    <a href="../Films/Year Released-Inter/2010s/Hang-over2.html" target="_blank"><img class="card" src="https://i2.wp.com/3.bp.blogspot.com/-Np-7VQ_FwOg/TZEgKAAfbiI/AAAAAAAAAD4/jY0Pt9uN3rI/s1600/Hangover%2B2%2BMovie%2BPoster.jpg?ssl=1" alt="Hangover2"></a>
+                </div>
+                <div class="cards">
+                    <a href="../Films/Year Released-Inter/2000sBefore/The-beach.html" target="_blank"><img class="card" src="https://mr.comingsoon.it/imgdb/locandine/big/3092.jpg" alt="The-Beach"></a>
+                </div>
+                <div class="cards">
+                    <a href="../Films/Year Released-Inter/2000sBefore/StarWars-Ep3(2005).html" target="_blank"><img class="card" src="https://www.themoviedb.org/t/p/w500/xfSAoBEm9MNBjmlNcDYLvLSMlnq.jpg" alt="Star-Wars-Part3"></a>
+                </div>
+                <div class="cards">
+                    <a href="../Films/Year Released-Inter/2010s/lost in thailand(2012).html" target="_blank"><img class="card" src="https://m.media-amazon.com/images/M/MV5BMjI4OTkzMTUxMV5BMl5BanBnXkFtZTgwNzU1NzIwMTE@._V1_.jpg" alt="Lost-in-BKK"></a>
+                </div>
+                <di class="cards">
+                    <a href="../Films/Year Released-Inter/2020s/Fast9.html" target="_blank"><img class="card" src="https://www.classification.gov.au/sites/default/files/styles/poster_desktop_2x/public/posters/bOFaAXmWWXC3Rbv4u4uM9ZSzRXP.jpg?itok=M3WQOMPG" alt="Fast&Furious9"></a>
+                </di>
+            </div>  
+                        
+    <!----------------------------------------Thai Films------------------------------------------------->
+            <div class="content-T-films">
+                <h2><mark>Thai</mark> Films &nbsp; <span><a class="explore-films-btn" href="../Films/Thai-Films.html"><i class="fas fa-caret-square-right"></i></a></span></h2>
+            </div>
+
+            <div id="body1">
+                <div class="cards">
+                    <a href="../Films/Year Realeased-Thai/2010s/snap.html" target="_blank"><img class="card" src="http://f.ptcdn.info/007/039/000/o0kee1e39SP2UeI3I8-o.jpg" alt="Snap"></a>
+                </div>
+                <div class="cards">
+                    <a href="../Films/Year Realeased-Thai/2010s/The-melody.html" target="_blank"><img class="card" src="https://s.isanook.com/mv/0/ud/3/19399/melody.jpg" alt="The-Melody"></a>
+                </div>
+                <div class="cards">
+                    <a href="../Films/Year Realeased-Thai/2020s/LowSeason.html" target="_blank"><img class="card" class="card" src="https://m.media-amazon.com/images/M/MV5BM2NlYWZmYTAtMmUwNC00NmRlLWE2N2YtYzUwNmRmZWE4OGZhXkEyXkFqcGdeQXVyODgwNDE1NzE@._V1_.jpg" alt="Low-Season"></a>
+                </div>
+                <div class="cards">
+                    <a href="../Films/Year Realeased-Thai/2010s/Nakee2.html" target="_blank"><img class="card" src="https://www.themoviedb.org/t/p/w500/zboT7sbKpI6UXCMj9P62APkNFjJ.jpg" alt="Nakee2"></a>
+                </div>
+                <div class="cards">
+                    <a href="../Films/Year Realeased-Thai/2010s/The-teacher's-diary(2014).html" target="_blank"><img class="card" src="http://f.ptcdn.info/307/021/000/1405523792-Teachers01-o.jpg" alt="The-teacher-diaries"> </a>
+                </div>
+                <div class="cards">
+                    <a href="../Films/Year Realeased-Thai/2010s/A Little Thing Called LOVE.html" target="_blank"><img class="card" src="https://i.scdn.co/image/ab67706c0000bebb7eb2776b28ded083752736fd" alt="A-little-thing-called-first-love"></a>
+                </div>   
+            </div>
+        </div>  
+    </section>
+        
+    <!---------------------------------------------Footer-------------------------------------------------->
+    <div class="copyright">
+        <div class="container">
+            <div class="copyright-grid">
+                <p><i class="fas fa-pen-square"></i> By BelleZarocha <i class="fas fa-pen-square"></i></p>
+            </div>
+        </div>
+    </div>
+    </body>
+</html>
